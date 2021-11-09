@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> News page!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset = UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <style>
+        a:link {
+            margin: 10px;
+            font-size: 30px;
+        }
+
+        body {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body onload="start()">
+<label for="sel"> Выберите категорию статей </label>
+<select name="sel" id="sel1" onchange="getHeadersToTopic(this.options[this.selectedIndex].value)">
+    <option value="all"> Все</option>
+</select>
+<div id="a1" class="content"></div>
+<a href="/loadArt"> Загрузить статью </a>
+<script>
+    function start() {
+        $('.content').empty();
+        $.get("/articlesGetForTopic/all", function (data) {
+            data.forEach(d => $('#a1').append(
+                    $('<a>').prop({
+                        innerHTML: d.header,
+                        href: "/showArticle/" + d.id
+                    })));
+            data.forEach(d => $('#sel1').append(
+                    $('<option>').prop({
+                        value: d.topic,
+                        innerHTML: d.topic
+                    })));
+        });
+    }
+
+    function getHeadersToTopic(chosenTopic) {
+        $('.content').empty();
+        $.get("/articlesGetForTopic/" + chosenTopic, function (data) {
+            data.forEach(d => $('#a1').append(
+                    $('<a>').prop({
+                        innerHTML: d.header,
+                        href: "/showArticle/" + d.id
+                    })));
+        });
+    }
+</script>
+</body>
+</html>

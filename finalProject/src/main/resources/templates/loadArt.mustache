@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> Loading new article!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset = UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <style>
+        body {
+            font-size: 30px;
+        }
+        form input {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+<form id="form1" action="/uploadArticle" target="dummyframe" enctype="multipart/form-data" method="POST">
+    <p>Загрузите zip-архив со статьей и укажите рубрику</p>
+    <p><input type="text" name="topic">
+        <input type="file" name="file" accept="application/zip">
+        <input type="submit" value="Отправить"></p>
+</form>
+<a href="/">Вернуться на главную страницу</a>
+<script>
+    $('#form1')
+            .submit(function (e) {
+                alert("Succesfully added!")
+            });
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Article display</title>
+    <meta http-equiv="Content-Type" content="text/html; charset = UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <style>
+        div{
+            font-size: 40px;
+        }
+        a:link{
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="load()">
+<h1 id="headerH"></h1>
+<h3 id="topicH"></h3>
+<div id="bodyDiv"></div>
+<a href="/">На главную</a>
+<script>
+    function load() {
+        $.get("/article/" + {{articleId}}, function (data) {
+            $('#headerH').append(
+                    $('<h1>').prop({
+                        innerHTML: "Заголовок: " + data.header
+                    })
+            )
+            $('#topicH').append(
+                    $('<h3>').prop({
+                        innerHTML: "Рубрика: " + data.topic
+                    })
+            )
+            $('#bodyDiv').append(
+                    $('<div>').prop({
+                        innerHTML: "Текст статьи: " + data.body
+                    })
+            )
+        })
+    }
+</script>
+</body>
+</html>
