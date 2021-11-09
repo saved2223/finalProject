@@ -1,1 +1,1 @@
-web: java -jar target/dependency/webapp-runner.jar target/finalProject-0.0.1-SNAPSHOT.war -Dserver.port=$PORT $JAR_OPTS
+web: java -jar target/dependency/webapp-runner.jar target/finalProject-0.0.1-SNAPSHOT.war $JAR_OPTS -Dserver.port=$PORT 
