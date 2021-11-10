@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.springframework.data.relational.core.mapping.Table;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,22 +18,25 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table("articles")
 public class Article {
     @Id
+    @GeneratedValue
     private Long id;
+
+    @Column(length = 65535, columnDefinition = "Text")
     private String body;
+
+    @Column(length = 65535, columnDefinition = "Text")
     private String header;
+
     private String topic;
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
-    @GeneratedValue
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     @Override
