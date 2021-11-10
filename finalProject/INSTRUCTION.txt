@@ -20,15 +20,15 @@ $NEWPATH = "$OLDPATH;$JAVAPATH\bin"
 
 7.Зайдите в директорию, в которую установили TomCat, в папку webApps.
 
-8. Cкачайте файл ROOT.war из директории
+8. Cкачайте файл ROOT.war из директории проект в GitHub
 
-8. Удалите папку ROOT,  вставьте скачанный файл в эту директорию.
+9. Удалите папку ROOT,  вставьте скачанный файл в эту директорию.
 
-9. Запустите TomCat, зайдя в папку TomCat/bin и запустив  startup.bat
+10. Запустите TomCat, зайдя в папку TomCat/bin и запустив  startup.bat
 
-10. Остановите сервер, закрыв окно с консолью.
+11. Остановите сервер, закрыв окно с консолью.
 
-11. Скачайте файл 1.mv.db из директории GitHub finalProject/finalProject/src/main/resources/static/ 
+12. Скачайте файл 1.mv.db из директории этого проекта на GitHub finalProject/finalProject/src/main/resources/static/
 и вставьте с заменой файлов в папку с Tomcat bin\src\main\resources\static
 
-12. Все, можно пользоваться
+13. Все, можно пользоваться
